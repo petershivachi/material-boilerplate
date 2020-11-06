@@ -1,0 +1,32 @@
+<mat-menu #appMenu="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="subFrontMenu" color="accent">FrontEnd</button>
+    <button mat-menu-item [matMenuTriggerFor]="subBackMenu" color="accent">BackEnd</button>
+</mat-menu>
+
+<button mat-flat-button [matMenuTriggerFor]="appMenu" colr="primary">Menu</button>
+
+<mat-menu #subFrontMenu="matMenu">
+    <button mat-menu-item>Angular</button>
+    <button mat-menu-item>React</button>
+    <button mat-menu-item>Vue</button>
+</mat-menu>
+
+<mat-menu #subBackMenu="matMenu">
+    <button mat-menu-item>Django</button>
+    <button mat-menu-item>Node</button>
+    <button mat-menu-item>SpringBoot</button>
+    <button mat-menu-item>PHP</button>
+</mat-menu>
+
+<mat-menu #lazyMenu="matMenu">
+    <ng-template matMenuContent let-name="name">
+        <button mat-menu-item>Settings</button>
+    <button mat-menu-item>Logout {{name}}</button>
+    </ng-template>
+</mat-menu>
+ 
+<div>
+    <button mat-flat-button [matMenuTriggerData]="{name: 'StackOverflow'}" [matMenuTriggerFor]="lazyMenu">StackOverflow</button>
+    <button mat-flat-button [matMenuTriggerData]="{name: 'Safaricom'}" [matMenuTriggerFor]="lazyMenu">Safaricom</button>
+
+</div>
